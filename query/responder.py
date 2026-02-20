@@ -1,9 +1,12 @@
 """Claude RAG response generation using retrieved context."""
 
 import anthropic
+from pathlib import Path
 
-from config import ANTHROPIC_API_KEY, CLAUDE_MODEL
+from config import ANTHROPIC_API_KEY, CLAUDE_MODEL, PROJECT_ROOT
 from query.retriever import retrieve
+
+RULES_FILE = PROJECT_ROOT / "rules.txt"
 
 SYSTEM_PROMPT = """You are Hypertide's friendly support assistant on Slack. You answer questions using past support conversations as context.
 
@@ -14,7 +17,18 @@ Guidelines:
 - Use bullet points or short paragraphs, not long blocks of text
 - When context emails conflict, prefer the most recent one — newer info is more likely to be accurate
 - If you don't have a clear answer from the context, be upfront and suggest they reach out to support@hypertide.io
-- Do not make up information that isn't in the context"""
+- Do not make up information that isn't in the context
+
+IMPORTANT: If rules are provided below, they ALWAYS take priority over anything in the email context. Never contradict the rules, even if emails say otherwise."""
+
+
+def load_rules():
+    """Load rules from rules.txt, skipping comments and blank lines."""
+    if not RULES_FILE.exists():
+        return ""
+    lines = RULES_FILE.read_text().splitlines()
+    rules = [l for l in lines if l.strip() and not l.strip().startswith("#")]
+    return "\n".join(rules)
 
 
 def build_context_block(hits):
@@ -46,13 +60,18 @@ def generate_response(question, top_k=None):
     hits = retrieve(question, top_k=top_k)
     context = build_context_block(hits)
 
+    # Load rules
+    rules = load_rules()
+    rules_block = f"\n\n--- RULES (always follow these) ---\n{rules}\n" if rules else ""
+
     # Build the user message
     user_message = (
         f"Here are relevant past support email exchanges:\n\n"
-        f"{context}\n\n"
+        f"{context}\n"
+        f"{rules_block}\n"
         f"---\n\n"
         f"Customer question: {question}\n\n"
-        f"Please provide a helpful response based on the context above."
+        f"Please provide a helpful response. Follow the rules above if they apply."
     )
 
     # Call Claude
