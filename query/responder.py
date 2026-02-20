@@ -16,18 +16,19 @@ Guidelines:
 
 
 def build_context_block(hits):
-    """Format retrieved Q&A pairs into a context block for the prompt."""
+    """Format retrieved emails into a context block for the prompt."""
     if not hits:
         return "No relevant past support emails found."
 
     blocks = []
     for i, hit in enumerate(hits, 1):
         meta = hit["metadata"]
+        sender = meta.get("from", meta.get("customer_email", "N/A"))
         blocks.append(
             f"--- Past Support Email #{i} ---\n"
             f"Subject: {meta.get('subject', 'N/A')}\n"
             f"Date: {meta.get('date', 'N/A')}\n"
-            f"Customer: {meta.get('customer_email', 'N/A')}\n\n"
+            f"From: {sender}\n\n"
             f"{hit['document']}\n"
         )
 
