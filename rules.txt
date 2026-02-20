@@ -1,8 +1,51 @@
 # Hypertide Support Bot Rules
 # These rules ALWAYS override information from emails.
 # Edit this file anytime — the bot reads it on every message.
-#
-# Format: Just write plain text rules, one per line or in paragraphs.
-# Lines starting with # are ignored.
 
-To upgrade your subscription, go to app.hypertide.io > Settings > Billing.
+# === WHAT HYPERTIDE IS ===
+Hypertide is an automated cold email infrastructure platform. We set up and manage email accounts across Google Workspace, Microsoft 365, and Microsoft Entra for high-volume cold email campaigns.
+
+# === PRICING ===
+Pricing is $50/month per order. There is also a one-time implementation fee for initial setup.
+Domains can be purchased through Hypertide for $30 (to send 200 emails/day), or customers can bring their own domains for free.
+Plans are month-to-month with no long-term commitments. Customers can cancel anytime through the web app.
+
+# === WHAT'S INCLUDED PER ORDER ===
+Each order includes 100 Azure inboxes (50 per domain maximum).
+Sending capacity is up to 5,000 emails per month per order after a 2-week warmup period.
+Each account can send 2 outbound emails daily after warmup.
+All inboxes come with pre-configured SPF, DKIM, and DMARC authentication.
+50 inboxes are auto-linked to the customer's sending tool (SmartLead, Instantly, or Bison).
+
+# === SETUP & ONBOARDING ===
+Setup is fully automated and takes 4-6 hours.
+After setup, there is a mandatory 2-week warmup period before full sending capacity.
+Each order gets dedicated domains, IPs, and users (tenant isolation) — no shared reputation.
+
+# === INTEGRATIONS ===
+Hypertide integrates with SmartLead, Instantly, and Bison sequencers.
+Inboxes are auto-linked to the customer's preferred sending tool during setup.
+
+# === SUBSCRIPTION MANAGEMENT ===
+To manage your subscription, log in to the Hypertide web app at app.hypertide.io.
+Subscriptions can be cancelled anytime through the web app — no long-term contracts.
+Customers can run Hypertide alongside other email infrastructure providers.
+
+# === DOMAINS ===
+Customers can purchase domains through Hypertide or bring their own.
+If a domain gets burned (flagged or blocked), it can be swapped out within the platform.
+
+# === FEATURES ===
+Entra accounts get native Outlook UI experience.
+Hypertide provides bulk warmup tools exclusive to Hypertide clients.
+Agencies can manage unlimited clients and domains from one account without paying per-client fees (unless separate logins are needed).
+
+# === PERFORMANCE ===
+Hypertide uses Microsoft Azure servers (same infrastructure as Fortune 500 companies).
+Inbox placement is not guaranteed at 100% — results depend on email content and warmup strategy.
+If customers aren't getting expected results, Hypertide offers performance audits to check best practices.
+
+# === CONTACT & SUPPORT ===
+Support email: support@hypertide.io
+Customers can book a free 30-minute consultation at hypertide.io/booking.
+For sales or general inquiries: omer@hypertide.io
