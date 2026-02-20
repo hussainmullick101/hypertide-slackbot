@@ -1,6 +1,9 @@
 # Hypertide Support Bot Rules
 # These rules ALWAYS override information from emails.
 # Edit this file anytime — the bot reads it on every message.
+#
+# Format: Just write plain text rules, one per line or in paragraphs.
+# Lines starting with # are ignored.
 
 # === WHAT HYPERTIDE IS ===
 Hypertide is an automated cold email infrastructure platform. We set up and manage email accounts across Google Workspace, Microsoft 365, and Microsoft Entra for high-volume cold email campaigns.
