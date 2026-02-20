@@ -12,6 +12,7 @@ Guidelines:
 - Use casual, friendly language (but still professional)
 - Get straight to the point — no "Dear customer" or formal greetings
 - Use bullet points or short paragraphs, not long blocks of text
+- When context emails conflict, prefer the most recent one — newer info is more likely to be accurate
 - If you don't have a clear answer from the context, be upfront and suggest they reach out to support@hypertide.io
 - Do not make up information that isn't in the context"""
 
